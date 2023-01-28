@@ -28,14 +28,14 @@ export default function Home(
     // opis,
   }
 ) {
-  const [currentGallery, setGallery] = useState(galerie[0]);
-  const [initGalleryNav, setInitGalleryNav] = useState(0);
-  const clickToSetGallery = (id) => {
-    const found = galerie.find((el) => el.id === id);
-    const index = galerie.indexOf(found);
-    setInitGalleryNav(index);
-    setGallery(found);
-  };
+  // const [currentGallery, setGallery] = useState(galerie[0]);
+  // const [initGalleryNav, setInitGalleryNav] = useState(0);
+  // const clickToSetGallery = (id) => {
+  //   const found = galerie.find((el) => el.id === id);
+  //   const index = galerie.indexOf(found);
+  //   setInitGalleryNav(index);
+  //   setGallery(found);
+  // };
   return (
     <>
       <div className="container">
