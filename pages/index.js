@@ -14,20 +14,18 @@ import Script from "next/script";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-export default function Home(
-  {
-    // rekrutacja,
-    // podstawowa,
-    // liceum,
-    // technikum,
-    // news,
-    // galerie,
-    // kontakt,
-    // wykaz,
-    // slajdy,
-    // opis,
-  }
-) {
+export default function Home({
+  // rekrutacja,
+  // podstawowa,
+  // liceum,
+  // technikum,
+  // news,
+  // galerie,
+  // kontakt,
+  // wykaz,
+  // slajdy,
+  opis,
+}) {
   // const [currentGallery, setGallery] = useState(galerie[0]);
   // const [initGalleryNav, setInitGalleryNav] = useState(0);
   // const clickToSetGallery = (id) => {
@@ -59,7 +57,7 @@ export default function Home(
           slajdy={slajdy}
         ></Header> */}
         <main>
-          {/* <Descript opis={opis}></Descript> */}
+          <Descript opis={opis}></Descript>
           {/* <News
             news={news}
             handler={clickToSetGallery}
@@ -93,100 +91,100 @@ export default function Home(
   );
 }
 
-// export async function getStaticProps() {
-//   const res1 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/rekrutacja?populate=*`
-//   );
-//   const strapi1 = await res1.json();
-//   const res2 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/podstawowa?populate=*`
-//   );
-//   const strapi2 = await res2.json();
-//   const res3 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/liceum?populate=*`
-//   );
-//   const strapi3 = await res3.json();
-//   const res4 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/aktualnoscis?sort[0]=data:desc&populate=*&`
-//   );
-//   const strapi4 = await res4.json();
-//   const res5 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/galeries?sort[0]=createdAt:desc&populate=*`
-//   );
-//   const strapi5 = await res5.json();
-//   const res6 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/technikum?populate=*`
-//   );
-//   const strapi6 = await res6.json();
-//   const res7 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/kontakt`
-//   );
-//   const strapi7 = await res7.json();
-//   const res8 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/wykaz-podrecznikow?populate=*`
-//   );
-//   const strapi8 = await res8.json();
-//   const res9 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/slajdies?sort[0]=id`
-//   );
-//   const strapi9 = await res9.json();
-//   const res10 = await fetch(
-//     `${
-//       process.env.DEVELOPMENT_BACKEND_HOST
-//         ? process.env.DEVELOPMENT_BACKEND_HOST
-//         : process.env.PRODUCTION_BACKEND_HOST
-//     }/api/opis-szkoly?populate=*`
-//   );
-//   const strapi10 = await res10.json();
-//   return {
-//     props: {
-//       rekrutacja: strapi1.data.attributes.opis,
-//       podstawowa: strapi2.data.attributes.opis,
-//       liceum: strapi3.data.attributes.opis,
-//       technikum: strapi6.data.attributes.opis,
-//       kontakt: strapi7.data.attributes.text,
-//       wykaz: strapi8.data.attributes.wykaz.data,
-//       news: strapi4.data,
-//       galerie: strapi5.data,
-//       slajdy: strapi9.data,
-//       opis: strapi10.data,
-//     },
-//     revalidate: 30,
-//   };
-// }
+export async function getStaticProps() {
+  // const res1 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/rekrutacja?populate=*`
+  // );
+  // const strapi1 = await res1.json();
+  // const res2 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/podstawowa?populate=*`
+  // );
+  // const strapi2 = await res2.json();
+  // const res3 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/liceum?populate=*`
+  // );
+  // const strapi3 = await res3.json();
+  // const res4 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/aktualnoscis?sort[0]=data:desc&populate=*&`
+  // );
+  // const strapi4 = await res4.json();
+  // const res5 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/galeries?sort[0]=createdAt:desc&populate=*`
+  // );
+  // const strapi5 = await res5.json();
+  // const res6 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/technikum?populate=*`
+  // );
+  // const strapi6 = await res6.json();
+  // const res7 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/kontakt`
+  // );
+  // const strapi7 = await res7.json();
+  // const res8 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/wykaz-podrecznikow?populate=*`
+  // );
+  // const strapi8 = await res8.json();
+  // const res9 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/slajdies?sort[0]=id`
+  // );
+  // const strapi9 = await res9.json();
+  const res10 = await fetch(
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/opis-szkoly?populate=*`
+  );
+  const strapi10 = await res10.json();
+  return {
+    props: {
+      // rekrutacja: strapi1.data.attributes.opis,
+      // podstawowa: strapi2.data.attributes.opis,
+      // liceum: strapi3.data.attributes.opis,
+      // technikum: strapi6.data.attributes.opis,
+      // kontakt: strapi7.data.attributes.text,
+      // wykaz: strapi8.data.attributes.wykaz.data,
+      // news: strapi4.data,
+      // galerie: strapi5.data,
+      // slajdy: strapi9.data,
+      opis: strapi10.data,
+    },
+    revalidate: 30,
+  };
+}
