@@ -16,25 +16,25 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 export default function Home({
-  // rekrutacja,
-  // podstawowa,
-  // liceum,
-  // technikum,
-  // news,
-  // galerie,
-  // kontakt,
-  // wykaz,
-  // slajdy,
+  rekrutacja,
+  podstawowa,
+  liceum,
+  technikum,
+  news,
+  galerie,
+  kontakt,
+  wykaz,
+  slajdy,
   opis,
 }) {
-  // const [currentGallery, setGallery] = useState(galerie[0]);
-  // const [initGalleryNav, setInitGalleryNav] = useState(0);
-  // const clickToSetGallery = (id) => {
-  //   const found = galerie.find((el) => el.id === id);
-  //   const index = galerie.indexOf(found);
-  //   setInitGalleryNav(index);
-  //   setGallery(found);
-  // };
+  const [currentGallery, setGallery] = useState(galerie[0]);
+  const [initGalleryNav, setInitGalleryNav] = useState(0);
+  const clickToSetGallery = (id) => {
+    const found = galerie.find((el) => el.id === id);
+    const index = galerie.indexOf(found);
+    setInitGalleryNav(index);
+    setGallery(found);
+  };
   return (
     <>
       <div className="container">
@@ -50,33 +50,33 @@ export default function Home({
           />
         </Head>
 
-        {/* <Navigation></Navigation>
+        <Navigation></Navigation>
         <Header
           rekrutacja={rekrutacja}
           podstawowa={podstawowa}
           liceum={liceum}
           slajdy={slajdy}
-        ></Header> */}
+        ></Header>
         <main>
           <Descript opis={opis}></Descript>
-          {/* <News
+          <News
             news={news}
             handler={clickToSetGallery}
             galerie={galerie}
-          ></News> */}
-          {/* <Gallery
+          ></News>
+          <Gallery
             initGalleryNav={initGalleryNav}
             galerie={galerie}
             handler={clickToSetGallery}
             currentGallery={currentGallery}
-          ></Gallery> */}
-          {/* <Offer
+          ></Gallery>
+          <Offer
             rekrutacja={rekrutacja}
             podstawowa={podstawowa}
             liceum={liceum}
             technikum={technikum}
-          ></Offer> */}
-          {/* <Info kontakt={kontakt} wykaz={wykaz}></Info> */}
+          ></Offer>
+          <Info kontakt={kontakt} wykaz={wykaz}></Info>
         </main>
         <footer className="footer">
           <h2>
