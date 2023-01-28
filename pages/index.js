@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "../components/Header";
 import Descript from "../components/Descript";
 import News from "../components/News";
@@ -45,7 +46,7 @@ export default function Home({
             rel="stylesheet"
             href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
             integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-            crossorigin=""
+            crossOrigin=""
           />
         </Head>
 
@@ -92,6 +93,73 @@ export default function Home({
 }
 
 export async function getStaticProps() {
+  let urls = [
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/rekrutacja?populate=*`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/podstawowa?populate=*`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/liceum?populate=*`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/aktualnoscis?sort[0]=data:desc&populate=*&`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/galeries?sort[0]=createdAt:desc&populate=*`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/technikum?populate=*`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/kontakt`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/wykaz-podrecznikow?populate=*`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/slajdies?sort[0]=id`,
+    `${
+      process.env.DEVELOPMENT_BACKEND_HOST
+        ? process.env.DEVELOPMENT_BACKEND_HOST
+        : process.env.PRODUCTION_BACKEND_HOST
+    }/api/opis-szkoly?populate=*`,
+  ];
+  console.log(urls);
+  const requests = urls.map((url) => axios.get(url));
+  let responses = await axios.all(requests).then((responses) => {
+    return responses;
+  });
+  const strapi1 = responses[0].data;
+  const strapi2 = await responses[1].data;
+  const strapi3 = await responses[2].data;
+  const strapi4 = await responses[3].data;
+  const strapi5 = await responses[4].data;
+  const strapi6 = await responses[5].data;
+  const strapi7 = await responses[6].data;
+  const strapi8 = await responses[7].data;
+  const strapi9 = await responses[8].data;
+  const strapi10 = responses[9].data;
   // const res1 = await fetch(
   //   `${
   //     process.env.DEVELOPMENT_BACKEND_HOST
@@ -164,25 +232,25 @@ export async function getStaticProps() {
   //   }/api/slajdies?sort[0]=id`
   // );
   // const strapi9 = await res9.json();
-  const res10 = await fetch(
-    `${
-      process.env.DEVELOPMENT_BACKEND_HOST
-        ? process.env.DEVELOPMENT_BACKEND_HOST
-        : process.env.PRODUCTION_BACKEND_HOST
-    }/api/opis-szkoly?populate=*`
-  );
-  const strapi10 = await res10.json();
+  // const res10 = await fetch(
+  //   `${
+  //     process.env.DEVELOPMENT_BACKEND_HOST
+  //       ? process.env.DEVELOPMENT_BACKEND_HOST
+  //       : process.env.PRODUCTION_BACKEND_HOST
+  //   }/api/opis-szkoly?populate=*`
+  // );
+  // const strapi10 = await res10.json();
   return {
     props: {
-      // rekrutacja: strapi1.data.attributes.opis,
-      // podstawowa: strapi2.data.attributes.opis,
-      // liceum: strapi3.data.attributes.opis,
-      // technikum: strapi6.data.attributes.opis,
-      // kontakt: strapi7.data.attributes.text,
-      // wykaz: strapi8.data.attributes.wykaz.data,
-      // news: strapi4.data,
-      // galerie: strapi5.data,
-      // slajdy: strapi9.data,
+      rekrutacja: strapi1.data.attributes.opis,
+      podstawowa: strapi2.data.attributes.opis,
+      liceum: strapi3.data.attributes.opis,
+      technikum: strapi6.data.attributes.opis,
+      kontakt: strapi7.data.attributes.text,
+      wykaz: strapi8.data.attributes.wykaz.data,
+      news: strapi4.data,
+      galerie: strapi5.data,
+      slajdy: strapi9.data,
       opis: strapi10.data,
     },
     revalidate: 30,
