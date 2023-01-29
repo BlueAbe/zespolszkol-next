@@ -33,7 +33,7 @@ item1.addEventListener("click", (e) => {
     let item = items[i];
     item.classList.remove("bold");
   }
-  e.path[1].classList.add("bold");
+  e.composedPath()[1].classList.add("bold");
   news.scrollIntoView({ behavior: "smooth" });
 });
 
@@ -43,7 +43,7 @@ item2.addEventListener("click", (e) => {
     let item = items[i];
     item.classList.remove("bold");
   }
-  e.path[1].classList.add("bold");
+  e.composedPath()[1].classList.add("bold");
   gallery.scrollIntoView({ behavior: "smooth" });
 });
 item3.addEventListener("click", async (e) => {
@@ -52,7 +52,7 @@ item3.addEventListener("click", async (e) => {
     let item = items[i];
     item.classList.remove("bold");
   }
-  e.path[1].classList.add("bold");
+  e.composedPath()[1].classList.add("bold");
   offer.scrollIntoView({ behavior: "smooth" });
 });
 item4.addEventListener("click", (e) => {
@@ -61,7 +61,7 @@ item4.addEventListener("click", (e) => {
     let item = items[i];
     item.classList.remove("bold");
   }
-  e.path[1].classList.add("bold");
+  e.composedPath()[1].classList.add("bold");
   info.scrollIntoView({ behavior: "smooth" });
 });
 ///////////////////////////////////////
