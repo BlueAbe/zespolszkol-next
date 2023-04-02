@@ -45,6 +45,11 @@ export default function Info({ kontakt, wykaz }) {
             href="https://uonetplus.vulcan.net.pl/powiatslupski"
             target="_blank"
           ></a>
+          <a
+            className="other-links progecad"
+            href="http://progecad.pl/"
+            target="_blank"
+          ></a>
         </div>
       </section>
       <Script
