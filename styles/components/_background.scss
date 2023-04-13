@@ -13,7 +13,7 @@ $blue: #2998ff;
     stroke: $blue;
     fill: $blue;
   }
-  position: absolute;
+  position: fixed;
   bottom: -100vh;
   transform-style: preserve-3d;
 }
